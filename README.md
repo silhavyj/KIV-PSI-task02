@@ -2,6 +2,8 @@
 
 This project is for academic purposes only and may potentially contain security vulnerabilities. Therefore, use it at your own risk. However, some precautions where taking during the process of implementation - see the implementation details. 
 
+<img src="img/02.png">
+
 ## Build
 
 ### Requirements

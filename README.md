@@ -55,10 +55,22 @@ If you're planning to test the application on your local machine only, you don't
 ./kiv-psi-task02-silhavyj --port 8085 --directory ../data/
 ```
 
+You can verify the server is up and running by executing the following command.
+
+```bash
+netstat -tupln | grep 8085 
+```
+
 ## Logging
 
 Once the program has started, you can notice logs being printed out to the terminal. These logs are meant to capture what the server's currently doing. They are also being stored into a file for possible further analysis. All log files are stored into the `log` folder which can be found in the root folder of the project structure.
 
+<img src="img/01.png">
+
 ## Testing
+
+In order to test the functionality of the application, I have included a simple website that was created as a team project when I was on Erasmus in Belfast. The website is supposed to be a horror game, and while it may not be the most efficient application as far as resources are concerned, it does send a fair amount of request to the server. It needs to pull down files such as images, sound effects, CSS, HTML, and JS. Therefore, I thought it could be a good application to be run off of this server.
+
+Feel free to create your own testing folder with a couple of test files of your own :)
 
 ## Implementation details

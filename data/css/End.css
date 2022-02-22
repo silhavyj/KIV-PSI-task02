@@ -1,0 +1,164 @@
+.Wrapper {
+  width: 40%;
+  margin: auto;
+  margin-top: 20px;
+  height: auto;
+  border: 2px solid red;
+  border-radius: 20px;
+}
+
+.SMSBox {
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 40vh;
+  padding: 40px;
+  color: white;
+
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.SMSReplies{
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 20%;
+
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.RecievedMessage {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: rgba(255, 0, 0, 0.4);
+  border-radius: 20px;
+  border-bottom-left-radius: 5px;
+  float: left;
+  width: auto;
+}
+
+.SentMessage {
+  float: right;
+  padding: 10px;
+  background-color: rgba(0, 200, 0, 0.4);
+  border-radius: 20px;
+  border-bottom-right-radius: 5px;
+  margin-left: 80%;
+}
+
+.SMSReplies button {
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 20px;
+  font-size: 1vw;
+  display: block;
+  display: inline-block;
+  text-align: center;
+  margin: 20px;
+  background-color: rgba(200, 100, 90, 0.4);
+  color: white;
+}
+
+.SMSReplies button:hover {
+  background-color: black;
+  color: #dbb300;
+  border-color: #dbb300;
+}
+
+body {
+  background-image: url('../images/rain.gif');
+  background-size: cover;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+table {
+  color: white;
+}
+
+.gameOverTitle {
+  margin: auto;
+  margin-top: 10px;
+  width: 40%;
+  border: 2px solid red;
+  border-radius: 20px;
+  color: white;
+  font-size: 1.7vw;
+}
+
+.titles {
+  float: left;
+}
+
+.info {
+  float: right;
+}
+
+#msg1 {
+  visibility: hidden;
+}
+
+.SMSBox::-webkit-scrollbar {
+  display: block;
+  width: 10px;
+}
+
+.SMSBox::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.SMSBox::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-right: none;
+  border-left: none;
+  border-radius: 10px;
+}
+
+.SMSBox::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.SMSBox::-webkit-scrollbar-track-piece:end {
+  background: transparent;
+  margin-bottom: 15px;
+}
+
+.SMSBox::-webkit-scrollbar-track-piece:start {
+  background: transparent;
+  margin-top: 15px;
+}
+
+#gameOverMsg{
+  visibility: hidden;
+}
+
+#SendOpt1 {
+  visibility: hidden;
+}
+
+#SendOpt2 {
+  visibility: hidden;
+}
+
+.zoomBtn {
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 10px;
+  display: block;
+  font-size: 1.5vw;
+  display: inline-block;
+  text-align: center;
+  margin: 5px;
+  background-color: rgba(255, 0, 0, 0.4);
+  color: white;
+  float: left;
+}
+
+.TextZoom:hover {
+  background-color: black;
+  color: #dbb300;
+  border-color: #dbb300;
+}

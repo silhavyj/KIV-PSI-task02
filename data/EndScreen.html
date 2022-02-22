@@ -1,0 +1,63 @@
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>End Screen</title>
+
+  <script src="scripts/End.js">
+  </script>
+
+  <link rel="stylesheet" type="text/css" href="css/End.css">
+
+</head>
+
+<body onload="setTimeout(showGameOver, 500);">
+
+  <button class="zoomBtn" id="zoomIn" onclick="zoomIn()">Zoom Text In</button>
+  <button class="zoomBtn" id="zoomOut" onclick="zoomOut()">Zoom Text Out</button>
+
+    <div class="gameOverTitle"><p>Game Over</p></div>
+    <div class="Wrapper">
+
+      <div class="SMSBox" style="font-size: 1vw;">
+        <div><span class="RecievedMessage" id="gameOverMsg">Game Over</span></div>
+        <div>
+          <span class="SentMessage" id="msg1"></span>
+        </div>
+        <div><table class="RecievedMessage" id="feedback" style="width: 400px; visibility:hidden;">
+          <tr>
+            <td colspan="2" style="border-bottom: 1px solid white;">Game Details</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="titles">Game Won: </td>
+            <td id="winLoss" class="info"></td>
+          </tr>
+          <tr>
+            <td class="titles">Cops Called: </td>
+            <td id="copsCalled" class="info"></td>
+          </tr>
+          <tr>
+            <td class="titles">Time Remaining: </td>
+            <td id="playTime" class="info"></td>
+          </tr>
+          <tr>
+            <td class="titles">Final Location: </td>
+            <td id="finalLocation" class="info"></td>
+          </tr>
+          <tr>
+            <td class="titles">Number Of Attempts: </td>
+            <td id="noOfAttempts" class="info"></td>
+          </tr>
+        </table></div>
+        <div><span class="SentMessage" id="msg2" style="width: 100px; visibility:hidden;"></span></div>
+      </div>
+      <div class="SMSReplies">
+        <button id="SendOpt1" onclick="setTimeout(Choice1Details, 500)">How Did I Do?</button>
+        <button id="SendOpt2" onclick="setTimeout(Choice1OK, 500)">Ok, Restart</button>
+      </div>
+    </div>
+  </body>
+  </html>

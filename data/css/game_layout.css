@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#wrapper {
+  width: 90%;
+  overflow: auto;
+  left: 6.5%;
+  height: 90%;
+  bottom: 3%;
+  position: absolute;
+}
+
+#wrapper::-webkit-scrollbar {
+  display: none;
+  overflow: -moz-scrollbars-none;
+}
+
+#left-container {
+  float: left;
+  width: 65%;
+}
+
+#right-container {
+  float: left;
+  width: 35%;
+}
+
+#top-container {
+  clear: left;
+  width: 100%;
+}
+
+#pic-container {
+  width: 100%;
+  margin-bottom: 10px;
+}

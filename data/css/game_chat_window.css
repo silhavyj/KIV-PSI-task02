@@ -1,0 +1,167 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+#container {
+  width: 85%;
+  margin: auto;
+  margin-left: 5%;
+  margin-top: 2.5%;
+}
+
+#messages-container {
+  border-radius: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-bottom: 30px;
+  background-color: rgba(0,0,0,0.7);
+  border: #7d0800 4px solid;
+}
+
+#messages {
+  margin: auto;
+  padding: 30px 15px 0 25px;
+  width: 90%;
+  clear: both;
+}
+
+#messages-history {
+  height: 325px;
+  overflow-y: scroll;
+}
+
+#messages-history::-webkit-scrollbar {
+  display: none;
+  overflow: -moz-scrollbars-none;
+}
+
+.received-msg {
+  display: inline-block;
+  margin: 5px 0 5px;
+  vertical-align: top;
+  width: 90%;
+}
+
+.received-msg img {
+  width: 23%;
+  border-radius: 50%;
+  padding-right: 5px;
+}
+
+.received-width-msg {
+  display: inline-block;
+  max-width: 60%;
+  padding-left: 5px;
+}
+
+.received-width-msg p {
+  background: #262626 none repeat scroll 0 0;
+  border-radius: 20px 20px 20px 5px;
+  color: white;
+  margin: 0;
+  padding: 10px;
+  font-size: 1vw;
+}
+
+.time-date {
+  color: #747474;
+  display: block;
+  font-size: 0.9vw;
+  margin: 5px 0 0;
+}
+
+.time-right {
+  float: right;
+}
+
+.outgoing-msg {
+  overflow: hidden;
+  margin: 5px 0 5px;
+}
+
+.sent-msg {
+  float: right;
+  max-width: 60%;
+}
+
+.sent-msg p {
+  background: #0078ff none repeat scroll 0 0;
+  border-radius: 20px 20px 5px 20px;
+  margin: 0;
+  color:#fff;
+  padding: 10px;
+  width: 100%;
+  font-size: 1vw;
+}
+
+.feedback {
+  float: right;
+  max-width: 100%;
+}
+
+.feedback p {
+  background: rgba(125,8,0,0.5) none repeat scroll 0 0;
+  border-radius: 20px 20px 20px 20px;
+  margin: 0;
+  color:#fff;
+  padding: 10px;
+  width: 100%;
+  font-size: 0.9vw;
+  font-style: italic;
+}
+
+.type-msg {
+  border-top: 2px solid #7d0800;
+  position: relative;
+  margin-top: 20px;
+}
+
+#choice-container {
+  background-color: rgba(0,0,0,0);
+  border-radius: 20px;
+  padding: 10px;
+  overflow: auto;
+  margin-top: 5px;
+  height: 125px;
+}
+
+#choice-container::-webkit-scrollbar {
+  display: none;
+  overflow: -moz-scrollbars-none;
+}
+
+.choice {
+  display: inline-block;
+  width: auto;
+  padding: 10px;
+  background-color: #262626;
+  color: white;
+  border-radius: 20px;
+  overflow: auto;
+  margin: 3px;
+  font-size: 1vw;
+}
+
+.choice:hover {
+  background-color: darkgrey;
+  color: black;
+  cursor: none;
+}
+
+.online {
+  height: 0.8vw;
+  width: 0.8vw;
+  background-color: #0ea300;
+  border-radius: 50%;
+  border: 2px white solid;
+  display: inline-block;
+  position:  relative;
+  left: 20%;
+}
+
+.fade-in { animation: fadeIn 1.5s; }
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to   {opacity: 1;}
+}

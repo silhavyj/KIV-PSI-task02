@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Cabin in the woods</title>
+  </head>
+
+  <link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/intro_style.css">
+  <link rel="stylesheet" href="css/intro_form.css">
+  <link rel="stylesheet" href="css/game_rain.css">
+
+  <script src="scripts/game_rain.js"></script>
+  <script src="scripts/intro_functionality.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <body onload="createRain();">
+    <section class="rain"></section>
+    <div id="container">
+
+      <div id="containerTitle">
+
+        <div id="Title">
+          <h1>Cabin in the Woods</h1>
+        </div>
+
+        <div id="Logo">
+          <img src="images/profile.png" alt="logo">
+          <span class="online"></span>
+        </div>
+      </div>
+
+      <div id="form">
+        <h3 id="zoom_label">zoom</h3>
+        <span class="zoom-option" onclick="zoomInIntro();"><p>+</p></span>
+        <span class="zoom-option minus" onclick="zoomOutIntro();"><p>-</p></span>
+        <div id="intro">
+          <p id="storyLabel">Story</p>
+          <p id="text">It's a scary night, you're alone within a cabin in the woods... <br>Around midnight, you recieve a message from an <br>old friend which has died. Which reads <br>"It's your old pal, give me a smile ;)"</p>
+          <input class="button" type="button" name="Continue" onclick="continueButton();" value="Continue">
+        </div>
+        <div id="formInputLeft">
+          <h4 id="data">User Input</h4>
+
+          <div class="valid_wrapper">
+            <div class="left">
+              <label class="name" id="name" for="name">Name</label>
+              <input class="name" id="nameInput" class="inputData" type="text" name="Name" value=" ">
+            </div>
+            <div class="right">
+              <img id="invalid" src="images/intro_invalid.png" alt="invalid">
+            </div>
+          </div>
+
+          <div class="valid_wrapper">
+              <div class="left">
+                <label class="dob" id="dobText" for="dob"><br>DOB</label>
+                <input class="dob" id="dob" type="date" name="dob" value=" ">
+              </div>
+              <div class="right">
+                <img id="invalidAge" src="images/intro_invalid.png" alt="invalid">
+              </div>
+          </div>
+
+        </div>
+        <div id="formInputRight">
+          <label class="male" id="male" for="male">Male</label>
+          <input class="male" type="radio" name="male" value="" checked>
+          <label class="female" id="female" for="female">Female</label>
+          <input class="female" type="radio" name="female" value="">
+        </div>
+        <div id="formInputBottom">
+          <input class="button" id="button" type="button" name="Start" onclick="startGame();" value="Start">
+        </div>
+      </div>
+
+      <div id="image">
+        <img src="images/cabin.jpg" alt="cabin">
+      </div>
+
+    </div>
+  </body>
+</html>

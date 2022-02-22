@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/game_layout.css">
+    <link rel="stylesheet" href="css/game_style.css">
+    <link rel="stylesheet" href="css/game_chat_window.css">
+    <link rel="stylesheet" href="css/game_rain.css">
+    <link rel="stylesheet" href="css/game_typing.css">
+    <link rel="stylesheet" href="css/cursor.css">
+
+    <script type="text/javascript" src="scripts/game_rain.js"></script>
+    <script type="text/javascript" src="scripts/game_countdown.js"></script>
+    <script type="text/javascript" src="scripts/game_cursor.js"></script>
+    <script type="text/javascript" src="scripts/game_chat_window.js"></script>
+    <script type="text/javascript" src="scripts/intro_functionality.js"></script>
+
+    <script type="text/javascript" src="story/data.json"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Special+Elite&display=swap" rel="stylesheet">
+
+    <title></title>
+    <style></style>
+  </head>
+  <body onload="setCursor(); load(); startTimer();">
+    <div class="cursor"></div>
+    <section class="rain"></section>
+    <img src="images/blood.png" id="countdown-img">
+    <h1 id="countdown-time">05 : 00</h1>
+
+    <div id="wrapper">
+      <div id="left-container">
+        <div id="top-container">
+          <h1 id="title">Cabin in the Woods</h1>
+        </div>
+        <div id="pic-container" class="pic">
+        </div>
+        <div id="bottom-container">
+        </div>
+      </div>
+      <div id="right-container">
+        <div id="container">
+          <div id="messages-container">
+            <h3>zoom</h3>
+            <span class="zoom-option" onclick="zoomIn();"><p onmouseover="playHoverSound()">+</p></span>
+            <span class="zoom-option minus" onclick="zoomOut();"><p onmouseover="playHoverSound()">-</p></span>
+            <h2 id="name">unknown person</h2>
+            <div id="messages">
+              <div id="messages-history">
+              </div>
+              <div class="type-msg">
+                <div class="input-msg-write">
+                  <div id="choice-container">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="game-over">
+      <div id="game-over-title">
+        <p>GAME OVER</p>
+        <h3 class="last-page-countdown">00 : 03</h3>
+      </div>
+    </div>
+	<div id="victory">
+     <div id="victory-title">
+       <p>VICTORY</p>
+       <h3 class="last-page-countdown">00 : 03</h3>
+     </div>
+    </div>
+  </body>
+</html>

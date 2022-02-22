@@ -1,0 +1,864 @@
+var data = {
+  "start": {
+    "msg": "It's your old pal, give me a smile ;)",
+    "start_options_ids": [0,1]
+  },
+  "options": [{
+      "option_id": 0,
+      "option_text": "Hi, who are you?",
+      "sent_msg": [
+        "Hi!",
+        "Who are you?"
+      ],
+      "sound_after_sent_msg": "",
+      "received_msg": [
+        "It's Lucas",
+        "Your old friend!"
+      ],
+      "sound_after_received_msg": "",
+      "game_feedback": [],
+      "image": "inside_cabin.jpg",
+
+      "next_options_ids": {
+        "chance": 100,
+        "true": [2],
+        "false": []
+      },
+      "rain": "false",
+      "title": "Cabin in the Woods"
+    },
+    {
+      "option_id": 1,
+      "option_text": "*Turn off phone*",
+      "sent_msg": [],
+      "sound_after_sent_msg": "",
+      "received_msg": [],
+      "sound_after_received_msg": "",
+      "game_feedback": [
+        "You can't turn your phone off",
+        "It would the end of the game!"
+      ],
+      "sound_after_feedback_msg": "",
+      "image": "inside_cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [0],
+        "false": []
+      },
+      "rain": "false",
+      "title": "Cabin in the Woods"
+    },
+    {
+      "option_id": 2,
+      "option_text": "Lucas who..?",
+      "sent_msg": [
+        "Lucas who..?"
+      ],
+      "sound_after_sent_msg": "",
+      "received_msg": [
+        "You haven't forgotten me #1, have you?",
+        "It's Lucas Scott"
+      ],
+      "sound_after_received_msg": "ghost_sound.mp3",
+      "game_feedback": [],
+      "image": "inside_cabin.jpg",
+	  "game_over": "true",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [3, 4],
+        "false": []
+      },
+      "rain": "false",
+      "title": "Cabin in the Woods"
+    },
+    {
+      "option_id": 3,
+      "option_text": "WTF? Who is this?! Lucas is dead",
+      "sent_msg": [
+        "WTF?",
+        "Who is this?!",
+        "Lucas is dead"
+      ],
+      "sound_after_sent_msg": "",
+      "received_msg": [
+        "It is Lucas, I can explain."
+      ],
+      "sound_after_received_msg": "",
+      "game_feedback": [],
+      "image": "inside_cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [5, 6],
+        "false": []
+      },
+      "rain": "false",
+      "title": "Cabin in the Woods"
+    },
+    {
+      "option_id": 4,
+      "option_text": "This is a sick joke! Go away...",
+      "sent_msg": [
+        "This is a sick joke! Go away.."
+      ],
+      "sound_after_sent_msg": "rain.mp3",
+      "received_msg": [
+        "I promise it's me! I'm not dead. I can explain"
+      ],
+      "sound_after_received_msg": "",
+      "game_feedback": [],
+      "image": "cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [5, 6],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Cabin in the Woods"
+    },
+    {
+      "option_id": 5,
+      "option_text": "No you can't explain. I know Lucas is dead",
+      "sent_msg": [
+        "No you can't explain. I know Lucas is dead"
+      ],
+      "sound_after_sent_msg": "rain.mp3",
+      "received_msg": [
+        "Please trust me, things are complicated but I will tell you everything"
+      ],
+      "sound_after_received_msg": "",
+      "game_feedback": [],
+      "image": "cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [6, 7],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Cabin in the Woods"
+    },
+    {
+      "option_id": 6,
+      "option_text": "Go explain to me then because Lucas has been dead for over a year",
+      "sent_msg": [
+        "Go explain to me then because Lucas has been dead for over a year"
+      ],
+      "sound_after_sent_msg": "rain.mp3",
+      "received_msg": [
+        "Can I call round and I'll tell you everything?"
+      ],
+      "sound_after_received_msg": "",
+      "game_feedback": [],
+      "image": "cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [8],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Cabin in the Woods"
+    },
+    {
+      "option_id": 7,
+      "option_text": "I told you no! Just leave me alone you sicko!",
+      "sent_msg": [
+        "I told you no! Just leave me alone you sicko"
+      ],
+      "sound_after_sent_msg": "",
+      "received_msg": [
+        "I promise it's me! Things are complicated but I need to tell you"
+      ],
+      "sound_after_received_msg": "",
+      "game_feedback": [],
+      "image": "cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [8, 10, 14],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Cabin in the Woods"
+    },
+    {
+      "option_id": 8,
+      "option_text": "I'm not at my house. I'm away in my cabin for the weekend to relax.",
+      "sent_msg": [
+        "I'm not at my house.",
+        "I'm away in my cabin for the weekend to relax."
+      ],
+      "sound_after_sent_msg": "",
+      "received_msg": [
+        "Can you send me your location and I'll call round?"
+      ],
+      "sound_after_received_msg": "",
+      "game_feedback": [],
+      "image": "cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [9, 10],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Cabin in the Woods"
+    },
+
+    {
+      "option_id": 9,
+      "option_text": "Okay",
+      "sent_msg": ["Okay"],
+      "sound_after_sent_msg": "",
+      "received_msg": [],
+      "sound_after_received_msg": "",
+      "game_feedback": [
+        "You send him your location"
+      ],
+      "sound_after_feedback_msg": "",
+      "image": "cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [16],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Cabin in the Woods"
+    },
+    {
+      "option_id": 10,
+      "option_text": "I dont know if I trust you, this is all a little weird",
+      "sent_msg": [
+        "I dont know if I trust you, this is all a little weird"
+      ],
+      "sound_after_sent_msg": "",
+      "received_msg": ["I can prove to you that I am Lucas"],
+      "sound_after_received_msg": "",
+      "game_feedback": [],
+      "image": "cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [11, 15],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Cabin in the Woods"
+    },
+    {
+      "option_id": 11,
+      "option_text": "How..?",
+      "sent_msg": [
+        "How..?"
+      ],
+      "sound_after_sent_msg": "",
+      "received_msg": ["You would never call me Lucas, you always called me Luke",
+        "We've know eachother since Primary 2 in Miss Smith's class"
+      ],
+      "sound_after_received_msg": "",
+      "game_feedback": [],
+      "image": "cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [12, 13],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Cabin in the Woods"
+    },
+    {
+      "option_id": 12,
+      "option_text": "Okay, maybe you are him... But how? You were dead Lucas",
+      "sent_msg": [
+        "Okay, maybe you are him...",
+        "But how?",
+        "You were dead Lucas"
+      ],
+      "sound_after_sent_msg": "",
+      "received_msg": ["It's a long story thats why I need to explain to you",
+        "Can I drive round and explain"
+      ],
+      "sound_after_received_msg": "",
+      "game_feedback": [],
+      "image": "cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [9],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Cabin in the Woods"
+    },
+    {
+      "option_id": 13,
+      "option_text": "I still don't believe you. Tell me another thing about me",
+      "sent_msg": [
+        "I still don't believe you",
+        "Tell me another thing about me"
+      ],
+      "sound_after_sent_msg": "",
+      "received_msg": ["You are #2 years old, just a few months older than me."],
+      "sound_after_received_msg": "",
+      "game_feedback": [],
+      "image": "cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [12],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Cabin in the Woods"
+    },
+    {
+      "option_id": 14,
+      "option_text": "I said no! I'm going to ring the police",
+      "sent_msg": [
+        "I said no!",
+        "I'm going to ring the police"
+      ],
+      "sound_after_sent_msg": "",
+      "received_msg": ["No dont!",
+        "I can prove its me"
+      ],
+      "sound_after_received_msg": "",
+      "game_feedback": [],
+      "image": "cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [11, 15],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Cabin in the Woods"
+    },
+    {
+      "option_id": 15,
+      "option_text": "*Ring Police*",
+      "sent_msg": [],
+      "sound_after_sent_msg": "",
+      "received_msg": [],
+      "sound_after_received_msg": "",
+      "game_feedback": ["You try ringing the police there isn't anything they can do"],
+      "sound_after_feedback_msg": "ring_sound.mp3",
+      "image": "cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [11],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Calling Police..."
+    },
+    {
+      "option_id": 16,
+      "option_text": "There I sent my location",
+      "sent_msg": ["There I sent my location"],
+      "sound_after_sent_msg": "",
+      "received_msg": ["Okay give me an hour"],
+      "sound_after_received_msg": "",
+      "game_feedback": ["10 minutes go by and you hear some rustling"],
+      "sound_after_feedback_msg": "leaves_rustling.mp3",
+      "image": "cabin.jpg",
+      "next_options_ids": {
+        "chance": 50,
+        "true": [17, 18, 20],
+        "false": [17.1, 18, 20]
+      },
+      "rain": "true",
+      "title": "Creepy Cabin"
+    },
+    {
+      "option_id": 17,
+      "option_text": "*Go out and investigate*",
+      "sent_msg": [],
+      "sound_after_sent_msg": "",
+      "received_msg": [],
+      "sound_after_received_msg": "",
+      "game_feedback": ["You go out and investigate"],
+      "sound_after_feedback_msg": "",
+      "image": "outside_cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [22],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Investigating..."
+    },
+	    {
+      "option_id": 17.1,
+      "option_text": "*Go out and investigate*",
+      "sent_msg": [],
+      "sound_after_sent_msg": "",
+      "received_msg": [],
+      "sound_after_received_msg": "",
+      "game_feedback": ["You go out and investigate and find nothing, things are a little suspicious"],
+      "sound_after_feedback_msg": "",
+      "image": "outside_cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [19.1],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Investigating..."
+    },
+    {
+      "option_id": 18,
+      "option_text": "Hello? I hear leaves rustling outside is that you?",
+      "sent_msg": [
+        "Hello?",
+        "I hear leaves rustling outside is that you?"
+      ],
+      "sound_after_sent_msg": "",
+      "received_msg": [],
+      "sound_after_received_msg": "",
+      "game_feedback": ["There is no reply from Lucas"],
+      "sound_after_feedback_msg": "",
+      "image": "cabin.jpg",
+      "next_options_ids": {
+        "chance": 50,
+        "true": [17.1, 19, 20],
+        "false": [17, 19, 21]
+      },
+      "rain": "true",
+      "title": "Cabin in the Woods"
+    },
+    {
+      "option_id": 19,
+      "option_text": "Seriously? Hello? This is't funny, I'm scared",
+      "sent_msg": [
+        "Seriously?",
+        "Hello?",
+        "This isn't funny I'm scared"
+      ],
+      "sound_after_sent_msg": "",
+      "received_msg": ["No it's not me, I'm still 10 minutes away"],
+      "sound_after_received_msg": "",
+      "game_feedback": [],
+      "sound_after_feedback_msg": "",
+      "image": "cabin.jpg",
+      "next_options_ids": {
+        "chance": 50,
+        "true": [20, 24, 17],
+        "false": [21, 23, 17]
+      },
+      "rain": "true",
+      "title": "Cabin in the Woods"
+    },
+	    {
+      "option_id": 19.1,
+      "option_text": "Seriously? Hello? This is't funny, I'm scared",
+      "sent_msg": [
+        "Seriously?",
+        "Hello?",
+        "This isn't funny I'm scared"
+      ],
+      "sound_after_sent_msg": "",
+      "received_msg": ["No it's not me, I'm still 10 minutes away"],
+      "sound_after_received_msg": "",
+      "game_feedback": [],
+      "image": "cabin.jpg",
+      "next_options_ids": {
+        "chance": 50,
+        "true": [20, 23],
+        "false": [21, 23]
+      },
+      "rain": "true",
+      "title": "Cabin in the Woods"
+    },
+    {
+      "option_id": 20,
+      "option_text": "*Go to car*",
+      "sent_msg": [],
+      "sound_after_sent_msg": "",
+      "received_msg": [],
+      "sound_after_received_msg": "",
+      "game_feedback": ["You go to your car and it doesn't start.",
+        "Lucas hears the sound of the car"
+      ],
+      "sound_after_feedback_msg": "car_false_start.mp3",
+      "image": "car_cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [22],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Inside your Car"
+    },
+    {
+      "option_id": 21,
+      "option_text": "*Go to car*",
+      "sent_msg": [],
+      "sound_after_sent_msg": "",
+      "received_msg": [],
+      "sound_after_received_msg": "",
+      "game_feedback": ["You go to your car, it starts",
+        "You drive away", "It turns out it was a murderer texting you."
+      ],
+      "sound_after_feedback_msg": "car_start.mp3",
+      "image": "car_cabin.jpg",
+	  "victory": "true",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Inside your Car"
+    },
+
+    {
+      "option_id": 22,
+      "option_text": "You aren't Lucas... What's that in your hand? That's not a ...",
+      "sent_msg": ["You aren't Lucas...",
+        "What's that in your hand?",
+        "That's not a..."
+      ],
+      "sound_after_sent_msg": "",
+      "received_msg": ["This is revenge."],
+      "sound_after_received_msg": "gameover.mp3",
+      "game_feedback": ["Lucas killed you"],
+	  "game_over": "true",
+      "sound_after_feedback_msg": "",
+      "image": "cabin.jpg",
+	  "game_over": "true",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Game Over"
+    },
+    {
+      "option_id": 23,
+      "option_text": "*Ring Police*",
+      "sent_msg": [],
+      "sound_after_sent_msg": "no_service.mp3",
+      "received_msg": [],
+      "sound_after_received_msg": "",
+      "game_feedback": ["You try ringing the police but you have no service"],
+      "sound_after_feedback_msg": "",
+      "image": "cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [25.1, 26.1],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Calling Police..."
+    },
+    {
+      "option_id": 24,
+      "option_text": "*Ring Police*",
+      "sent_msg": [],
+      "sound_after_sent_msg": "ring_sound.mp3",
+      "received_msg": [],
+      "sound_after_received_msg": "",
+      "game_feedback": ["You ring the police, you tell them your location and they are on their way"],
+      "sound_after_feedback_msg": "",
+      "image": "cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [25, 26],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Calling Police..."
+    },
+    {
+      "option_id": 25,
+      "option_text": "*Find a hiding spot in the same cabin and wait for police*",
+      "sent_msg": [],
+      "sound_after_sent_msg": "",
+      "received_msg": [],
+      "sound_after_received_msg": "",
+      "game_feedback": ["You hide in the closet", "You hear footsteps in your cabin"],
+      "sound_after_feedback_msg": "footsteps.mp3",
+      "image": "cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [22],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Police are on their way"
+    },
+    {
+      "option_id": 25.1,
+      "option_text": "Where are you?",
+      "sent_msg": ["Where are you?"],
+      "sound_after_sent_msg": "",
+      "received_msg": ["I'm coming soon, near there."],
+      "sound_after_received_msg": "",
+      "game_feedback": [],
+      "sound_after_feedback_msg": "",
+      "image": "cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [26.1],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Cabin in the Woods"
+    },
+    {
+      "option_id": 26,
+      "option_text": "*Go out and try find another hiding spot until police come*",
+      "sent_msg": [],
+      "sound_after_sent_msg": "",
+      "received_msg": [],
+      "sound_after_received_msg": "",
+      "game_feedback": ["You find an abandoned cabin, you stay here"],
+      "sound_after_feedback_msg": "",
+      "image": "abandoned_cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [27],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Police are on their way"
+    },
+	    {
+      "option_id": 26.1,
+      "option_text": "*Go out and try find another hiding spot*",
+      "sent_msg": [],
+      "sound_after_sent_msg": "",
+      "received_msg": [],
+      "sound_after_received_msg": "",
+      "game_feedback": ["You find an abandoned cabin, you stay here"],
+      "sound_after_feedback_msg": "",
+      "image": "abandoned_cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [27],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Abandoned Cabin"
+    },
+    {
+      "option_id": 27,
+      "option_text": "Lucas you're scaring me",
+      "sent_msg": ["Lucas you're scaring me"],
+      "sound_after_sent_msg": "",
+      "received_msg": ["Hey #1 I'm at the cabin you sent me"],
+      "sound_after_received_msg": "",
+      "game_feedback": [],
+      "sound_after_feedback_msg": "",
+      "image": "abandoned_cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [28, 29,29.1],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Abandoned Cabin"
+    },
+    {
+      "option_id": 28,
+      "option_text": "*Go back to cabin*",
+      "sent_msg": [],
+      "sound_after_sent_msg": "",
+      "received_msg": [],
+      "sound_after_received_msg": "",
+      "game_feedback": ["You go back to the cabin and see an unknown figure"],
+      "sound_after_feedback_msg": "",
+      "image": "cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [22],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Cabin in the Woods"
+    },
+    {
+      "option_id": 29,
+      "option_text": "I'm not there anymore, you were scaring me. You didn't reply and I was hearing noises",
+      "sent_msg": ["I'm not there anymore, you were scaring me.",
+        "You didn't reply and I was hearing noises"
+      ],
+      "sound_after_sent_msg": "",
+      "received_msg": ["Are you coming back? We need to talk remember"],
+      "sound_after_received_msg": "",
+      "game_feedback": [],
+      "sound_after_feedback_msg": "",
+      "image": "abandoned_cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [30, 31, 28],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Abandoned Cabin"
+    },
+	    {
+      "option_id": 29.1,
+      "option_text": "*Find a hiding spot in the abandoned cabin*",
+      "sent_msg": [],
+      "sound_after_sent_msg": "",
+      "received_msg": [],
+      "sound_after_received_msg": "",
+      "game_feedback": ["You hide in the closet", "You hear footsteps in your cabin"],
+      "sound_after_feedback_msg": "footsteps.mp3",
+      "image": "abandoned_cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [30.1,38],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Abandoned Cabin"
+    },
+    {
+      "option_id": 30,
+      "option_text": "No I'm not coming back, I've went back home again",
+      "sent_msg": ["No I'm not coming back I've went back home again"],
+      "sound_after_sent_msg": "",
+      "received_msg": ["#1 I've drove all the way here, I want to talk to you"],
+      "sound_after_received_msg": "",
+      "game_feedback": [],
+      "sound_after_feedback_msg": "",
+      "image": "abandoned_cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [31, 28],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Abandoned Cabin"
+    },
+    {
+      "option_id": 30.1,
+      "option_text": "No I'm not coming back, I've went back home again",
+      "sent_msg": ["No I'm not coming back I've went back home again"],
+      "sound_after_sent_msg": "",
+      "received_msg": ["#1 I've drove all the way here, I want to talk to you"],
+      "sound_after_received_msg": "",
+      "game_feedback": [],
+      "sound_after_feedback_msg": "",
+      "image": "abandoned_cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [31.1, 28],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Abandoned Cabin"
+    },
+    {
+      "option_id": 31,
+      "option_text": "*Don't reply and wait for the Police to come*",
+      "sent_msg": [],
+      "sound_after_sent_msg": "",
+      "received_msg": ["I know where you are.", "You are still sharing your location with me on your #4 device"],
+      "sound_after_received_msg": "",
+      "game_feedback": ["Lucas leaves you a voice note"],
+      "sound_after_feedback_msg": "i_can_see_you.mp3",
+      "image": "abandoned_cabin.jpg",
+      "next_options_ids": {
+        "chance": 50,
+        "true": [32],
+        "false": [33]
+      },
+      "rain": "true",
+      "title": "Abandoned Cabin"
+    },
+    {
+      "option_id": 31,
+      "option_text": "*Don't reply*",
+      "sent_msg": [],
+      "sound_after_sent_msg": "",
+      "received_msg": ["I know where you are.", "You are still sharing your location with me on your #4 device"],
+      "sound_after_received_msg": "",
+      "game_feedback": ["Lucas leaves you a voice note"],
+      "sound_after_feedback_msg": "i_can_see_you.mp3",
+      "image": "abandoned_cabin.jpg",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [33],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Abandoned Cabin"
+    },
+    {
+      "option_id": 32,
+      "option_text": "The Police are on their way.",
+      "sent_msg": ["The Police are on their way."],
+      "sound_after_sent_msg": "",
+      "received_msg": ["What do you mean you called the Police?"],
+      "sound_after_received_msg": "",
+      "game_feedback": ["The Police arrive on time and arrest the man.", "It turns out the person was not Lucas"],
+      "sound_after_feedback_msg": "police_siren.mp3",
+      "image": "abandoned_cabin.jpg",
+	  "victory": "true",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Police Arrived"
+    },
+    {
+      "option_id": 33,
+      "option_text": "The Police are on their way.",
+      "sent_msg": ["The Police are on their way."],
+      "sound_after_sent_msg": "",
+      "received_msg": ["What do you mean you called the Police?"],
+      "sound_after_received_msg": "",
+      "game_feedback": ["Lucas finds you cabin that you are hiding in"],
+      "sound_after_feedback_msg": "",
+      "image": "cabin_lucas.jpg",
+     "next_options_ids": {
+        "chance": 100,
+        "true": [34],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Abandoned Cabin"
+    },
+
+    {
+      "option_id": 34,
+      "option_text": "You aren't Lucas... What's that in your hand? That's not a ...",
+      "sent_msg": ["You aren't Lucas...",
+        "What's that in your hand?",
+        "That's not a..."
+      ],
+      "sound_after_sent_msg": "",
+      "received_msg": ["This is revenge."],
+      "sound_after_received_msg": "gameover.mp3",
+      "game_feedback": ["Lucas killed you"],
+      "sound_after_feedback_msg": "",
+      "image": "cabin_lucas.jpg",
+	  "game_over": "true",
+      "next_options_ids": {
+        "chance": 100,
+        "true": [],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Game Over"
+    },
+    {
+      "option_id": 35,
+      "option_text": "I rang the Police",
+      "sent_msg": ["I rang the Police"],
+      "sound_after_sent_msg": "",
+      "received_msg": ["What do you mean you rang the Police?"],
+      "sound_after_received_msg": "",
+      "game_feedback": ["Lucas finds you cabin that you are hiding in"],
+      "sound_after_feedback_msg": "",
+      "image": "cabin_lucas.jpg",
+     "next_options_ids": {
+        "chance": 100,
+        "true": [34],
+        "false": []
+      },
+      "rain": "true",
+      "title": "Abandoned Cabin"
+    }
+
+  ]
+}

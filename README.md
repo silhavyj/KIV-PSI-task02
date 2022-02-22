@@ -65,7 +65,7 @@ netstat -tupln | grep 8085
 
 ## Logging
 
-Once the program has started, you can notice logs being printed out to the terminal. These logs are meant to capture what the server's currently doing. They are also being stored into a file for possible further analysis. All log files are stored into the `log` folder which can be found in the root folder of the project structure.
+Once the program has started, you can notice logs being printed out to the terminal. These logs are meant to capture what the server's currently doing. They are also being stored into a file for possible further analysis. All log files are stored into the `log` folder which can be found in the same directory where the sever was started.
 
 <img src="img/01.png">
 
@@ -75,4 +75,48 @@ In order to test the functionality of the application, I have included a simple 
 
 Feel free to create your own testing folder with a couple of test files of your own :)
 
+I also used the `netcat` tool to test the server. Some scenarios I carried out include the following.
+
+- Starting up the server with the default setup (localhost; port 8080)
+```bash
+./kiv-psi-task02-silhavyj
+```
+
+- Trying to hammer down the server like so
+
+```bash
+cat /dev/random | nc 127.0.0.1 8080
+```
+
+The server will log the following message: `[#160][22-02-2022_20-19-11][WARNING_LOG] client (127.0.0.1) sent an invalid GET REQUEST`
+
+- Trying to be a little sneaky 
+
+```bash
+echo 'GET /../../../../../../../../../../etc/passwd HTTP/1.1' | nc 127.0.0.1 8080
+```
+
+The server will log the following message: `[#157][22-02-2022_20-22-41][WARNING_LOG] client (127.0.0.1) has requested a malicious path ../../../../../../../../../../etc/passwd`
+
+- Trying to print out the contents of a file located in the working directory
+
+```bash
+echo 'GET Makefile HTTP/1.1' | nc 127.0.0.1 8080
+```
+
+The goes through since it's a valid GET request.
+
 ## Implementation details
+
+### Thread pool
+
+Upon the start of the server, there is a pre-defined amount of worker threads created. The purpose of these threads is to handle connections from the clients and response to their requests. When a client connects to the server, their connection is stored into a queue waiting to be processed by one of the workers. If there is no request (connection) to be processed, all workers are temporarily blocked off on a condition variable (reducing CPU usage). When a new connection is accepted, one of the workers is woken up, so it can handle the client.
+Having a fixed number of threads help prevent a possible DOS attack (with each connection a new thread would be created).
+
+### Client connection timeout
+
+Another security measure I've implemented is a helper thread that keeps checking if the client sent their request within a reasonable time. If they open up a new connection and don't send anything in 5s, the connection will be simply dropped as it's considered as suspicious behaviour. This way, the workers won't be occupied for an undefined amount of time.
+
+### Isolating exposed files
+
+Lastly, I've decided to forbid any paths that involve `..` or `.`. This approach is mean to prevent exposing sensitive files, such as the `/etc/passwd` file. Therefore, the client has access only to the directory which is specified on startup using the `-d` option.

@@ -163,13 +163,19 @@ namespace psi {
 
     void HTTPServer::sendResponse(std::pair<int, std::string> &client, const std::string &filePath) {
         std::string response;
-        std::ifstream file = std::ifstream(m_workDir + filePath);
-        if (file.fail()) {
-            LOG_ERR("could not read the content of the file");
-            response = utils::createHTTPHeader(HTTP_V1, HTTP_STATUS_FILE_NOT_FOUND);
+
+        if (!filePath.empty()) {
+            std::ifstream file = std::ifstream(m_workDir + filePath);
+            if (file.fail()) {
+                LOG_WARNING("could not read the content of the file");
+                response = utils::createHTTPHeader(HTTP_V1, HTTP_STATUS_FILE_NOT_FOUND);
+            } else {
+                response = utils::createHTTPHeader(HTTP_V1, HTTP_STATUS_OK);
+                response += {std::istreambuf_iterator<char>{file}, std::istreambuf_iterator<char>{}};
+            }
         } else {
-            response = utils::createHTTPHeader(HTTP_V1, HTTP_STATUS_OK);
-            response += {std::istreambuf_iterator<char>{file},std::istreambuf_iterator<char>{}};
+            LOG_WARNING("no file path was specified");
+            response = utils::createHTTPHeader(HTTP_V1, HTTP_STATUS_FILE_NOT_FOUND);
         }
         utils::sendData(client.first, response.c_str(), response.length());
     }

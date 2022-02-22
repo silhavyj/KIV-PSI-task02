@@ -13,7 +13,7 @@ Logger &Logger::getInstance() {
 }
 
 Logger::Logger() {
-    m_logFileName = getCurrentDateTime();
+    m_logFileName = getCurrentDateTime() + ".log";
     mkdir(logDirectory, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
 }
 

@@ -26,7 +26,7 @@ namespace psi::utils {
 
     void receiveData(int socket, char *buffer, size_t bytes) {
         ssize_t receivedBytes = recv(socket, buffer, bytes, 0);
-        buffer[receivedBytes] = '\0';
+        buffer[receivedBytes] = '\0'; // Terminate the string
     }
 
     void sendData(int socket, const char *buffer, size_t bytes) {

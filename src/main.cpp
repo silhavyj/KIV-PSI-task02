@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
 
     // Add a list of all options the application can be run with.
     options.add_options()
-        ("i,ip", "IP address the server will be bind to", cxxopts::value<std::string>()->default_value(psi::config::DEFAULT_IP))
+        ("i,ip", "IP address the server will be bounded to", cxxopts::value<std::string>()->default_value(psi::config::DEFAULT_IP))
         ("p,port", "Port the server will run on", cxxopts::value<uint16_t>()->default_value(std::to_string(psi::config::DEFAULT_PORT)))
         ("t,threads", "Size of the thread pool", cxxopts::value<uint32_t>()->default_value(std::to_string(psi::config::DEFAULT_NUMBER_OF_THREADS)))
         ("d,directory", "Working directory", cxxopts::value<std::string>()->default_value(psi::config::DEFAULT_WORKING_DIR))

@@ -43,7 +43,7 @@ Multi-threaded HTTP server
 Usage:
   ./kiv-psi-task02-silhavyj [OPTION...]
 
-  -i, --ip arg         IP address the server will be bind to (default: 
+  -i, --ip arg         IP address the server will be bounded to (default: 
                        127.0.0.1)
   -p, --port arg       Port the server will run on (default: 8080)
   -t, --threads arg    Size of the thread pool (default: 10)

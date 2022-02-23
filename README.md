@@ -8,7 +8,7 @@ This project is for academic purposes only and may potentially contain security 
 
 ### Requirements
 
-In order to successfully compile the application, you're required to he `cmake` installed on your machine. Additionally, this application runs on **Linux only**. To install `cmake` on a debian-based distribution, you can simply run the following command
+In order to successfully compile the application, you're required to have `cmake` installed on your machine. Additionally, this application runs on **Linux only**. To install `cmake` on a debian-based distribution, you can simply run the following command.
 
 ```bash
 sudo apt-get install cmake
@@ -24,15 +24,19 @@ mkdir build && cd build && cmake .. && make
 
 Upon successful execution, a file called `kiv-psi-task02-silhavyj` should be created. This file represents the executable binary of the application.
 
+### External libraries
+
+As for external libraries used in the project, I took advantage of the `cxxopts` library which parses arguments from the command line https://github.com/jarro2783/cxxopts. 
+
 ## Execution
 
-The application does nto require any parameters to be passed in from the terminal. However, the user change a few things in order to change the behavior of the application. As a first step, run the application like so:
+The application does not require any parameters to be passed in from the terminal. However, the user change a few things in order to adjust the behavior of the application. As a first step, run the application like so:
 
 ```bash
 ./kiv-psi-task02-silhavyj --help
 ```
 
-You will be prompted with a help menu which tells you all the options the server can be run with.
+You will be prompted with a help menu that tells you all the options the server can be run with.
 
 ```bash
 Multi-threaded HTTP server
@@ -53,7 +57,6 @@ If you're planning to test the application on your local machine only, you don't
 
 ```bash
 ./kiv-psi-task02-silhavyj -p 8085 -t 20 -d ../data/
-
 ./kiv-psi-task02-silhavyj --port 8085 --directory ../data/
 ```
 
@@ -65,13 +68,13 @@ netstat -tupln | grep 8085
 
 ## Logging
 
-Once the program has started, you can notice logs being printed out to the terminal. These logs are meant to capture what the server's currently doing. They are also being stored into a file for possible further analysis. All log files are stored into the `log` folder which can be found in the same directory where the sever was started.
+Once the program has started, you can notice logs being printed out to the terminal. These logs are meant to capture what the server's currently doing. They are also being stored into a file for possible further analysis. All log files are stored into the `log` folder which can be found in the same directory the server was started from.
 
 <img src="img/01.png">
 
 ## Testing
 
-In order to test the functionality of the application, I have included a simple website that was created as a team project when I was on Erasmus in Belfast. The website is supposed to be a horror game, and while it may not be the most efficient application as far as resources are concerned, it does send a fair amount of request to the server. It needs to pull down files such as images, sound effects, CSS, HTML, and JS. Therefore, I thought it could be a good application to be run off of this server.
+In order to test the functionality of the application, I have included a simple website that was created as a team project when I was on Erasmus in Belfast. The website is supposed to be an interactive horror game, and while it may not be the most efficient application as far as resources are concerned, it does send a fair amount of request to the server. It needs to pull down files such as images, sound effects, CSS, HTML, and JS. Therefore, I figured it could be a good application to be run off of this server.
 
 Feel free to create your own testing folder with a couple of test files of your own :)
 
@@ -104,7 +107,7 @@ The server will log the following message: `[#157][22-02-2022_20-22-41][WARNING_
 echo 'GET Makefile HTTP/1.1' | nc 127.0.0.1 8080
 ```
 
-The goes through since it's a valid GET request.
+The request goes through since it's a valid GET request for an existing file.
 
 ## Implementation details
 
@@ -115,8 +118,8 @@ Having a fixed number of threads help prevent a possible DOS attack (with each c
 
 ### Client connection timeout
 
-Another security measure I've implemented is a helper thread that keeps checking if the client sent their request within a reasonable time. If they open up a new connection and don't send anything in 5s, the connection will be simply dropped as it's considered as suspicious behaviour. This way, the workers won't be occupied for an undefined amount of time.
+Another security measure I implemented is a helper thread that keeps checking if the client sent their request within a reasonable time. If they open up a new connection and don't send anything in 5s, the connection will be simply dropped as it's considered as suspicious behavior. This way, the workers won't be occupied for an undefined amount of time.
 
 ### Isolating exposed files
 
-Lastly, I've decided to forbid any paths that involve `..` or `.`. This approach is mean to prevent exposing sensitive files, such as the `/etc/passwd` file. Therefore, the client has access only to the directory which is specified on startup using the `-d` option.
+Lastly, I decided to forbid any paths that involve `..` or `.`. This approach is meant to prevent exposing sensitive files, such as the `/etc/passwd` file. Therefore, the client has access only to the directory which is specified on startup by using the `-d` option.

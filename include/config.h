@@ -6,7 +6,7 @@
 /// can be adjusted by the user upon the start of the application.
 namespace psi::config {
 
-    /// Default IP address the server will be bounded to.
+    /// Default IP address the server will be bound to.
     static constexpr const char *DEFAULT_IP = "127.0.0.1";
 
     /// Default port the server will run on.

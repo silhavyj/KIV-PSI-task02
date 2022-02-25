@@ -64,7 +64,7 @@ namespace psi {
 
     private:
         /// Initializes the server so it can be started up.
-        /// \param ip address the server will be bounded to
+        /// \param ip address the server will be bound to
         /// \param port port the server will run on
         /// \param workers number of workers (size of the thread pool)
         void initServer(const std::string &ip, uint16_t port, uint32_t workers);
@@ -76,7 +76,7 @@ namespace psi {
         void attachSocketToPort() const;
 
         /// Binds the server (when the server boots up).
-        /// \param ip address the server will be bounded to
+        /// \param ip address the server will be bound to
         /// \param port port the server will run on
         void bindServer(const std::string &ip, uint16_t port);
 
@@ -122,7 +122,7 @@ namespace psi {
 
     public:
         /// Creates an instance of the server.
-        /// \param ip address the server will be bounded to
+        /// \param ip address the server will be bound to
         /// \param port port the server will run on
         /// \param workers number of workers (size of the thread pool)
         /// \workDir working directory

@@ -5,6 +5,7 @@
 #include <thread>
 #include <fstream>
 #include <utility>
+#include <unistd.h>
 
 #include "utils.h"
 #include "logger.h"

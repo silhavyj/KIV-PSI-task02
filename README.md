@@ -1,8 +1,8 @@
 # KIV/PSI task 02 - Multi-threaded HTTP server
 
-This project is for academic purposes only and may potentially contain security vulnerabilities. Therefore, use it at your own risk. However, some precautions where taking during the process of implementation - see the implementation details. 
+This project is for academic purposes only and may potentially contain security vulnerabilities. Therefore, use it at your own risk. However, some precautions where taken during the process of implementation - see the implementation details. 
 
-<img src="img/02.png">
+<img src="img/01.png">
 
 ## Build
 
@@ -24,6 +24,8 @@ mkdir build && cd build && cmake .. && make
 
 Upon successful execution, a file called `kiv-psi-task02-silhavyj` should be created. This file represents the executable binary of the application.
 
+<img src="img/02.png">
+
 ### External libraries
 
 As for external libraries used in the project, I took advantage of the `cxxopts` library which parses arguments from the command line https://github.com/jarro2783/cxxopts. 
@@ -38,7 +40,7 @@ The application does not require any parameters to be passed in from the termina
 
 You will be prompted with a help menu that tells you all the options the server can be run with.
 
-```bash
+```
 Multi-threaded HTTP server
 Usage:
   ./kiv-psi-task02-silhavyj [OPTION...]
@@ -60,17 +62,39 @@ If you're planning to test the application on your local machine only, you don't
 ./kiv-psi-task02-silhavyj --port 8085 --directory ../data/
 ```
 
+<img src="img/03.png">
+
 You can verify the server is up and running by executing the following command.
 
 ```bash
 netstat -tupln | grep 8085 
 ```
 
+### Running in Docker
+
+Alternatively, if you do not want to install `cmake` on your machine or you do not happen to have a Linux machine, you can run the application in a docker container. Navigate into the root folder of the project structure and execute the following command.
+
+```
+docker build -t kiv-psi-task02-silhavyj .
+```
+
+This creates a docker image of the application. Secondly, run the following command to start a docker container. Please do make sure that you expose the port on which you're planning to run the application, so it can be accessed from your local machine.
+
+```
+docker run -d -p 8080:8080 --name http-server kiv-psi-task02-silhavyj
+```
+
+And finally, in order to get into the running container, execute the following command.
+
+```
+docker exec -it http-server sh -c "cd /app && /bin/bash"
+```
+
+This will bring you into `/app` where this application is located. From this point you can run the server as described previously. 
+
 ## Logging
 
 Once the program has started, you can notice logs being printed out to the terminal. These logs are meant to capture what the server's currently doing. They are also being stored into a file for possible further analysis. All log files are stored into the `log` folder which can be found in the same directory the server was started from.
-
-<img src="img/01.png">
 
 ## Testing
 

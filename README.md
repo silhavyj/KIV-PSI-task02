@@ -1,5 +1,20 @@
 # KIV/PSI task 02 - Multi-threaded HTTP server
 
+- [Build](#build)
+    * [Requirements](#requirements)
+    * [Compilation](#compilation)
+    * [External libraries](#external-libraries)
+- [Execution](#execution)
+    * [Examples](#examples)
+    * [Running in Docker](#running-in-docker)
+- [Logging](#logging)
+- [Testing](#testing)
+    * [WireShark capture](#wireshark-capture)
+- [Implementation details](#implementation-details)
+    * [Thread pool](#thread-pool)
+    * [Client connection timeout](#client-connection-timeout)
+    * [Isolating exposed files](#isolating-exposed-files)
+
 This project is for academic purposes only and may potentially contain security vulnerabilities. Therefore, use it at your own risk. However, some precautions where taken during the process of implementation - see the implementation details. 
 
 <img src="img/01.png">
@@ -132,6 +147,10 @@ echo 'GET Makefile HTTP/1.1' | nc 127.0.0.1 8080
 ```
 
 The request goes through since it's a valid GET request for an existing file.
+
+### WireShark capture
+
+<img src="img/04.png">
 
 ## Implementation details
 

@@ -91,7 +91,7 @@ netstat -tupln | grep 8085
 ```
 ### Accessing the website
 
-If you have followed this procedure, the server should be accessible through your browser - http://127.0.0.1:8585/index.html.
+If you have followed this procedure, the server should be accessible through your browser - http://127.0.0.1:8085/index.html.
 
 ### Running in Docker
 

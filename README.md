@@ -1,19 +1,23 @@
 # KIV/PSI task 02 - Multi-threaded HTTP server
 
 - [Build](#build)
-    * [Requirements](#requirements)
-    * [Compilation](#compilation)
-    * [External libraries](#external-libraries)
+  * [Requirements](#requirements)
+  * [Compilation](#compilation)
+  * [External libraries](#external-libraries)
 - [Execution](#execution)
-    * [Examples](#examples)
-    * [Running in Docker](#running-in-docker)
+  * [Examples](#examples)
+  * [Running in Docker](#running-in-docker)
+    + [Creating a docker image](#creating-a-docker-image)
+    + [Starting the server](#starting-the-server)
+    + [Stopping the container](#stopping-the-container)
+    + [Removing the container](#removing-the-container)
 - [Logging](#logging)
 - [Testing](#testing)
-    * [WireShark capture](#wireshark-capture)
+  * [WireShark capture](#wireshark-capture)
 - [Implementation details](#implementation-details)
-    * [Thread pool](#thread-pool)
-    * [Client connection timeout](#client-connection-timeout)
-    * [Isolating exposed files](#isolating-exposed-files)
+  * [Thread pool](#thread-pool)
+  * [Client connection timeout](#client-connection-timeout)
+  * [Isolating exposed files](#isolating-exposed-files)
 
 This project is for academic purposes only and may potentially contain security vulnerabilities. Therefore, use it at your own risk. However, some precautions where taken during the process of implementation - see the implementation details. 
 
@@ -87,7 +91,9 @@ netstat -tupln | grep 8085
 
 ### Running in Docker
 
-Alternatively, if you do not want to install `cmake` on your machine or you do not happen to have a Linux machine, you can run the application in a docker container. Navigate into the root folder of the project structure and execute the following command.
+Alternatively, if you do not want to install `cmake` on your machine, or you do not happen to have a Linux machine, you can run the application in a docker container. Navigate into the root folder of the project structure and execute the following command.
+
+#### Creating a docker image
 
 ```
 docker build -t kiv-psi-task02-silhavyj .
@@ -99,13 +105,33 @@ This creates a docker image of the application. Secondly, run the following comm
 docker run -d -p 8080:8080 --name http-server kiv-psi-task02-silhavyj
 ```
 
+#### Starting the server
+
 And finally, in order to get into the running container, execute the following command.
 
 ```
 docker exec -it http-server sh -c "cd /app && /bin/bash"
 ```
 
-This will bring you into `/app` where this application is located. From this point you can run the server as described previously. 
+This will bring you into `/app` where this application is located. From this point you can run the server as described previously.
+
+```
+./kiv-psi-task02-silhavyj -i 0.0.0.0 -d data/ -p 8080
+```
+
+<img src="img/05.png">
+
+#### Stopping the container
+
+```
+docker stop http-server
+```
+
+#### Removing the container
+
+```
+docker rm http-server
+```
 
 ## Logging
 

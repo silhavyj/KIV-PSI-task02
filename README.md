@@ -1,11 +1,16 @@
 # KIV/PSI task 02 - Multi-threaded HTTP server
 
+This project is for academic purposes only and may potentially contain security vulnerabilities. Therefore, use it at your own risk. However, some precautions where taken during the process of implementation - see the implementation details.
+
+<img src="img/01.png">
+
 - [Build](#build)
   * [Requirements](#requirements)
   * [Compilation](#compilation)
   * [External libraries](#external-libraries)
 - [Execution](#execution)
   * [Examples](#examples)
+  * [Accessing the website](#accessing-the-website)
   * [Running in Docker](#running-in-docker)
     + [Creating a docker image](#creating-a-docker-image)
     + [Starting the server](#starting-the-server)
@@ -18,11 +23,7 @@
   * [Thread pool](#thread-pool)
   * [Client connection timeout](#client-connection-timeout)
   * [Isolating exposed files](#isolating-exposed-files)
-
-This project is for academic purposes only and may potentially contain security vulnerabilities. Therefore, use it at your own risk. However, some precautions where taken during the process of implementation - see the implementation details. 
-
-<img src="img/01.png">
-
+  
 ## Build
 
 ### Requirements
@@ -47,11 +48,11 @@ Upon successful execution, a file called `kiv-psi-task02-silhavyj` should be cre
 
 ### External libraries
 
-As for external libraries used in the project, I took advantage of the `cxxopts` library which parses arguments from the command line https://github.com/jarro2783/cxxopts. 
+As for external libraries used in the project, I took advantage of the `cxxopts` library which parses arguments from the command line https://github.com/jarro2783/cxxopts. This library is statically linked to the executable file. 
 
 ## Execution
 
-The application does not require any parameters to be passed in from the terminal. However, the user change a few things in order to adjust the behavior of the application. As a first step, run the application like so:
+The application does not require any parameters to be passed in from the terminal. However, the user change a few things in order to adjust the behavior of the application. As the first step, run the application like so.
 
 ```bash
 ./kiv-psi-task02-silhavyj --help
@@ -88,12 +89,15 @@ You can verify the server is up and running by executing the following command.
 ```bash
 netstat -tupln | grep 8085 
 ```
+### Accessing the website
+
+If you have followed this procedure, the server should be accessible through your browser - http://127.0.0.1:8585/index.html.
 
 ### Running in Docker
 
-Alternatively, if you do not want to install `cmake` on your machine, or you do not happen to have a Linux machine, you can run the application in a docker container. Navigate into the root folder of the project structure and execute the following command.
-
 #### Creating a docker image
+
+Alternatively, if you do not want to install `cmake` on your machine, or you do not happen to have a Linux machine, you can run the application in a docker container. Navigate into the root folder of the project structure and execute the following command.
 
 ```
 docker build -t kiv-psi-task02-silhavyj .
@@ -113,7 +117,7 @@ And finally, in order to get into the running container, execute the following c
 docker exec -it http-server sh -c "cd /app && /bin/bash"
 ```
 
-This will bring you into `/app` where this application is located. From this point you can run the server as described previously.
+This will bring you into `/app` where this application is located. From this point on you can run the server as described previously.
 
 ```
 ./kiv-psi-task02-silhavyj -i 0.0.0.0 -d data/ -p 8080
@@ -139,7 +143,7 @@ Once the program has started, you can notice logs being printed out to the termi
 
 ## Testing
 
-In order to test the functionality of the application, I have included a simple website that was created as a team project when I was on Erasmus in Belfast. The website is supposed to be an interactive horror game, and while it may not be the most efficient application as far as resources are concerned, it does send a fair amount of request to the server. It needs to pull down files such as images, sound effects, CSS, HTML, and JS. Therefore, I figured it could be a good application to be run off of this server.
+In order to test the functionality of the application, I have included a simple website that was created as a team project when I was on Erasmus in Belfast. The website is supposed to be an interactive horror game, and while it may not be the most efficient application as far as resources are concerned, it does send a fair amount of request to the server. It needs to pull down files such as images, sound effects, CSS, HTML, and JS. Therefore, I figured it could be a good application to be run off of the server.
 
 Feel free to create your own testing folder with a couple of test files of your own :)
 
@@ -182,8 +186,8 @@ The request goes through since it's a valid GET request for an existing file.
 
 ### Thread pool
 
-Upon the start of the server, there is a pre-defined amount of worker threads created. The purpose of these threads is to handle connections from the clients and response to their requests. When a client connects to the server, their connection is stored into a queue waiting to be processed by one of the workers. If there is no request (connection) to be processed, all workers are temporarily blocked off on a condition variable (reducing CPU usage). When a new connection is accepted, one of the workers is woken up, so it can handle the client.
-Having a fixed number of threads help prevent a possible DOS attack (with each connection a new thread would be created).
+Upon the start of the server, there is a pre-defined amount of worker threads created. The purpose of these threads is to handle connections from the clients and respond to their requests. When a client connects to the server, their connection is stored into a queue waiting to be processed by one of the workers. If there is no request (connection) to be processed, all workers are temporarily blocked off on a condition variable (reducing CPU usage). When a new connection is accepted, one of the workers is woken up, so it can handle the client.
+Having a fixed number of threads helps prevent a possible DOS attack (with each connection a new thread would be created).
 
 ### Client connection timeout
 
